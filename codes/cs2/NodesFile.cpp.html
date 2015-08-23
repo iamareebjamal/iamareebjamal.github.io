@@ -1,4 +1,4 @@
-<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">  1
+<div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">  1
   2
   3
   4
@@ -525,10 +525,10 @@
     <span style="color: #f8f8f2">node</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">next;</span>   <span style="color: #75715e">//Each node is first linearly linked for iterating through all elements.</span>
 <span style="color: #f8f8f2">}</span><span style="color: #f92672">*</span><span style="color: #f8f8f2">start,</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">nul;</span>
 
-<span style="color: #66d9ef">const</span> <span style="color: #66d9ef">int</span>   <span style="color: #f8f8f2">NUL</span>      <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>    <span style="color: #75715e">//Magic Number for pointing to NULL pointer&#39;s ID</span>
-<span style="color: #66d9ef">const</span> <span style="color: #66d9ef">char</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">IN_FILE</span>  <span style="color: #f92672">=</span> <span style="color: #e6db74">&quot;mesh.txt&quot;</span><span style="color: #f8f8f2">;</span>
-<span style="color: #66d9ef">const</span> <span style="color: #66d9ef">char</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">OUT_FILE</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">&quot;output.txt&quot;</span><span style="color: #f8f8f2">;</span>
-<span style="color: #66d9ef">const</span> <span style="color: #66d9ef">char</span>  <span style="color: #f8f8f2">SEP</span>      <span style="color: #f92672">=</span> <span style="color: #e6db74">&#39; &#39;</span><span style="color: #f8f8f2">;</span>  <span style="color: #75715e">//Default separator for the input matrix and</span>
+<span style="color: #66d9ef">const</span> <span style="color: #66d9ef">int</span>   <span style="color: #f8f8f2">NUL</span>      <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>    <span style="color: #75715e">//Magic Number for pointing to NULL pointer's ID</span>
+<span style="color: #66d9ef">const</span> <span style="color: #66d9ef">char</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">IN_FILE</span>  <span style="color: #f92672">=</span> <span style="color: #e6db74">"mesh.txt"</span><span style="color: #f8f8f2">;</span>
+<span style="color: #66d9ef">const</span> <span style="color: #66d9ef">char</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">OUT_FILE</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">"output.txt"</span><span style="color: #f8f8f2">;</span>
+<span style="color: #66d9ef">const</span> <span style="color: #66d9ef">char</span>  <span style="color: #f8f8f2">SEP</span>      <span style="color: #f92672">=</span> <span style="color: #e6db74">' '</span><span style="color: #f8f8f2">;</span>  <span style="color: #75715e">//Default separator for the input matrix and</span>
 <span style="color: #75715e">//resulting linear matrix data for creating nodes through common delimiter.</span>
 
 <span style="color: #75715e">/* Mesh Specifications */</span>
@@ -575,16 +575,16 @@
     <span style="color: #f8f8f2">in.open(IN_FILE);</span>
 
     <span style="color: #66d9ef">while</span><span style="color: #f8f8f2">(</span><span style="color: #f92672">!</span><span style="color: #f8f8f2">in.is_open())</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #f8f8f2">cout</span><span style="color: #f92672"><<</span><span style="color: #e6db74">&quot;File could not be opened. Please check that </span><span style="color: #ae81ff">\&quot;</span><span style="color: #e6db74">&quot;</span><span style="color: #f92672"><<</span><span style="color: #f8f8f2">IN_FILE</span><span style="color: #f92672"><<</span><span style="color: #e6db74">&quot;</span><span style="color: #ae81ff">\&quot;</span><span style="color: #e6db74"> exists in program path and is accessible without&quot;</span>
-            <span style="color: #e6db74">&quot; administrative privileges.&quot;</span>
-            <span style="color: #e6db74">&quot;</span><span style="color: #ae81ff">\n</span><span style="color: #e6db74">Sometimes a file can&#39;t be opened because some other process is accessing it and hasn&#39;t closed the file stream.&quot;</span>
-            <span style="color: #e6db74">&quot;</span><span style="color: #ae81ff">\n\n</span><span style="color: #e6db74">Please check that no other program is accessing the file and then press any key...</span><span style="color: #ae81ff">\n</span><span style="color: #e6db74">Press Q to quit...&quot;</span><span style="color: #f92672"><<</span><span style="color: #f8f8f2">endl;</span>
-        <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(cin.get()</span><span style="color: #f92672">==</span><span style="color: #e6db74">&#39;Q&#39;</span><span style="color: #f8f8f2">)</span>
+        <span style="color: #f8f8f2">cout</span><span style="color: #f92672"><<</span><span style="color: #e6db74">"File could not be opened. Please check that </span><span style="color: #ae81ff">\"</span><span style="color: #e6db74">"</span><span style="color: #f92672"><<</span><span style="color: #f8f8f2">IN_FILE</span><span style="color: #f92672"><<</span><span style="color: #e6db74">"</span><span style="color: #ae81ff">\"</span><span style="color: #e6db74"> exists in program path and is accessible without"</span>
+            <span style="color: #e6db74">" administrative privileges."</span>
+            <span style="color: #e6db74">"</span><span style="color: #ae81ff">\n</span><span style="color: #e6db74">Sometimes a file can't be opened because some other process is accessing it and hasn't closed the file stream."</span>
+            <span style="color: #e6db74">"</span><span style="color: #ae81ff">\n\n</span><span style="color: #e6db74">Please check that no other program is accessing the file and then press any key...</span><span style="color: #ae81ff">\n</span><span style="color: #e6db74">Press Q to quit..."</span><span style="color: #f92672"><<</span><span style="color: #f8f8f2">endl;</span>
+        <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(cin.get()</span><span style="color: #f92672">==</span><span style="color: #e6db74">'Q'</span><span style="color: #f8f8f2">)</span>
             <span style="color: #66d9ef">return</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
         <span style="color: #f8f8f2">in.open(IN_FILE);</span>
     <span style="color: #f8f8f2">}</span>
 
-    <span style="color: #f8f8f2">cout</span><span style="color: #f92672"><<</span><span style="color: #e6db74">&quot;File </span><span style="color: #ae81ff">\&#39;</span><span style="color: #e6db74">&quot;</span><span style="color: #f92672"><<</span><span style="color: #f8f8f2">IN_FILE</span><span style="color: #f92672"><<</span><span style="color: #e6db74">&quot;</span><span style="color: #ae81ff">\&#39;</span><span style="color: #e6db74"> Opened...&quot;</span><span style="color: #f92672"><<</span><span style="color: #f8f8f2">endl;</span>
+    <span style="color: #f8f8f2">cout</span><span style="color: #f92672"><<</span><span style="color: #e6db74">"File </span><span style="color: #ae81ff">\'</span><span style="color: #e6db74">"</span><span style="color: #f92672"><<</span><span style="color: #f8f8f2">IN_FILE</span><span style="color: #f92672"><<</span><span style="color: #e6db74">"</span><span style="color: #ae81ff">\'</span><span style="color: #e6db74"> Opened..."</span><span style="color: #f92672"><<</span><span style="color: #f8f8f2">endl;</span>
     <span style="color: #f8f8f2">stringstream</span> <span style="color: #f8f8f2">buffer;</span>
     <span style="color: #f8f8f2">buffer</span><span style="color: #f92672"><<</span><span style="color: #f8f8f2">in.rdbuf();</span>
     <span style="color: #f8f8f2">input</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">buffer.str();</span>
@@ -602,7 +602,7 @@
     <span style="color: #f8f8f2">out</span><span style="color: #f92672"><<</span><span style="color: #f8f8f2">parseMoves();</span>
     <span style="color: #f8f8f2">out.close();</span>
 
-    <span style="color: #f8f8f2">cout</span><span style="color: #f92672"><<</span><span style="color: #e6db74">&quot;Output file </span><span style="color: #ae81ff">\&#39;</span><span style="color: #e6db74">&quot;</span><span style="color: #f92672"><<</span><span style="color: #f8f8f2">OUT_FILE</span><span style="color: #f92672"><<</span><span style="color: #e6db74">&quot;</span><span style="color: #ae81ff">\&#39;</span><span style="color: #e6db74"> written...</span><span style="color: #ae81ff">\n</span><span style="color: #e6db74">Program Completed&quot;</span><span style="color: #f92672"><<</span><span style="color: #f8f8f2">endl;</span>
+    <span style="color: #f8f8f2">cout</span><span style="color: #f92672"><<</span><span style="color: #e6db74">"Output file </span><span style="color: #ae81ff">\'</span><span style="color: #e6db74">"</span><span style="color: #f92672"><<</span><span style="color: #f8f8f2">OUT_FILE</span><span style="color: #f92672"><<</span><span style="color: #e6db74">"</span><span style="color: #ae81ff">\'</span><span style="color: #e6db74"> written...</span><span style="color: #ae81ff">\n</span><span style="color: #e6db74">Program Completed"</span><span style="color: #f92672"><<</span><span style="color: #f8f8f2">endl;</span>
 
     <span style="color: #66d9ef">return</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
 <span style="color: #f8f8f2">}</span>
@@ -652,7 +652,7 @@
 <span style="color: #75715e"> * @return a boolean implying if character lies within range of alphanumeric/special characters or not</span>
 <span style="color: #75715e"> */</span>
 <span style="color: #66d9ef">bool</span> <span style="color: #a6e22e">validElement</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">char</span> <span style="color: #f8f8f2">element)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">((element</span><span style="color: #f92672">>=</span><span style="color: #e6db74">&#39;!&#39;</span><span style="color: #f92672">&amp;&amp;</span><span style="color: #f8f8f2">element</span><span style="color: #f92672"><=</span><span style="color: #e6db74">&#39;z&#39;</span><span style="color: #f8f8f2">))</span>
+    <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">((element</span><span style="color: #f92672">>=</span><span style="color: #e6db74">'!'</span><span style="color: #f92672">&&</span><span style="color: #f8f8f2">element</span><span style="color: #f92672"><=</span><span style="color: #e6db74">'z'</span><span style="color: #f8f8f2">))</span>
         <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">true;</span>
     <span style="color: #66d9ef">else</span>
         <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">false;</span>
@@ -676,10 +676,10 @@
         <span style="color: #f8f8f2">size</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">;</span>
 
     <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(size</span><span style="color: #f92672">!=</span><span style="color: #f8f8f2">getSize())</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #f8f8f2">cout</span><span style="color: #f92672"><<</span><span style="color: #e6db74">&quot;Malformed Matrix in txt file.</span><span style="color: #ae81ff">\n\n</span><span style="color: #e6db74">Actual Matrix size   : &quot;</span><span style="color: #f92672"><<</span><span style="color: #f8f8f2">size</span><span style="color: #f92672"><<</span><span style="color: #e6db74">&quot;</span><span style="color: #ae81ff">\n</span><span style="color: #e6db74">Expected Matrix size : &quot;</span><span style="color: #f92672"><<</span><span style="color: #f8f8f2">getSize()</span><span style="color: #f92672"><<</span><span style="color: #e6db74">&quot;</span><span style="color: #ae81ff">\n\n</span><span style="color: #e6db74">&quot;</span>
-            <span style="color: #e6db74">&quot;Program will not continue with malformed matrix or values in nodes will not be filled correctly. &quot;</span>
-            <span style="color: #e6db74">&quot;</span><span style="color: #ae81ff">\n</span><span style="color: #e6db74">Number of columns may be be inconsistent between rows.&quot;</span>
-            <span style="color: #e6db74">&quot;</span><span style="color: #ae81ff">\n</span><span style="color: #e6db74">Please fix the matrix and then run the program.&quot;</span><span style="color: #f92672"><<</span><span style="color: #f8f8f2">endl;</span>
+        <span style="color: #f8f8f2">cout</span><span style="color: #f92672"><<</span><span style="color: #e6db74">"Malformed Matrix in txt file.</span><span style="color: #ae81ff">\n\n</span><span style="color: #e6db74">Actual Matrix size   : "</span><span style="color: #f92672"><<</span><span style="color: #f8f8f2">size</span><span style="color: #f92672"><<</span><span style="color: #e6db74">"</span><span style="color: #ae81ff">\n</span><span style="color: #e6db74">Expected Matrix size : "</span><span style="color: #f92672"><<</span><span style="color: #f8f8f2">getSize()</span><span style="color: #f92672"><<</span><span style="color: #e6db74">"</span><span style="color: #ae81ff">\n\n</span><span style="color: #e6db74">"</span>
+            <span style="color: #e6db74">"Program will not continue with malformed matrix or values in nodes will not be filled correctly. "</span>
+            <span style="color: #e6db74">"</span><span style="color: #ae81ff">\n</span><span style="color: #e6db74">Number of columns may be be inconsistent between rows."</span>
+            <span style="color: #e6db74">"</span><span style="color: #ae81ff">\n</span><span style="color: #e6db74">Please fix the matrix and then run the program."</span><span style="color: #f92672"><<</span><span style="color: #f8f8f2">endl;</span>
         <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">true;</span>
     <span style="color: #f8f8f2">}</span>
     <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">false;</span>
@@ -697,12 +697,12 @@
 <span style="color: #75715e"> * extremities. If it is, then NUL ID is send, or else, the original ID.</span>
 <span style="color: #75715e"> *</span>
 <span style="color: #75715e"> * @param  inp The integer ID of the Node to be analysed</span>
-<span style="color: #75715e"> * @param  dir The direction of the linking to determine first or last column. &#39;R&#39; or &#39;L&#39; (For any other value)</span>
+<span style="color: #75715e"> * @param  dir The direction of the linking to determine first or last column. 'R' or 'L' (For any other value)</span>
 <span style="color: #75715e"> * @return NUL ID if at extremities, original if not</span>
 <span style="color: #75715e"> */</span>
 <span style="color: #66d9ef">int</span> <span style="color: #a6e22e">filter</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">inp,</span> <span style="color: #66d9ef">char</span> <span style="color: #f8f8f2">dir)</span> <span style="color: #f8f8f2">{</span>
     <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">sides</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">inp;</span>
-    <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(dir</span><span style="color: #f92672">==</span><span style="color: #e6db74">&#39;R&#39;</span><span style="color: #f8f8f2">)</span>
+    <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(dir</span><span style="color: #f92672">==</span><span style="color: #e6db74">'R'</span><span style="color: #f8f8f2">)</span>
         <span style="color: #f8f8f2">sides</span><span style="color: #f92672">--</span><span style="color: #f8f8f2">;</span>
 
     <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(</span><span style="color: #f92672">!</span><span style="color: #f8f8f2">(sides</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">getColumns()))</span>
@@ -761,16 +761,16 @@
 
 <span style="color: #75715e">/**</span>
 <span style="color: #75715e"> * Tab to Spaces String Modifier</span>
-<span style="color: #75715e"> * Replaces any Tab character &#39;\t&#39; to default delimeter space &#39; &#39;</span>
-<span style="color: #75715e"> * Done to parse the matrix and moves effectively as they are split using default delimeter &#39; &#39; (Space)</span>
+<span style="color: #75715e"> * Replaces any Tab character '\t' to default delimeter space ' '</span>
+<span style="color: #75715e"> * Done to parse the matrix and moves effectively as they are split using default delimeter ' ' (Space)</span>
 <span style="color: #75715e"> *</span>
 <span style="color: #75715e"> * @param  line The string in which tab is to be replaced</span>
-<span style="color: #75715e"> * @param  delimiter The character which is to be stripped. Default : &#39; &#39; (Space)</span>
+<span style="color: #75715e"> * @param  delimiter The character which is to be stripped. Default : ' ' (Space)</span>
 <span style="color: #75715e"> * @return a string with tab replaced with default delimeter</span>
 <span style="color: #75715e"> */</span>
 <span style="color: #f8f8f2">string</span> <span style="color: #a6e22e">convertTabs</span><span style="color: #f8f8f2">(string</span> <span style="color: #f8f8f2">input)</span> <span style="color: #f8f8f2">{</span>
     <span style="color: #66d9ef">for</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672"><</span> <span style="color: #f8f8f2">input.length();</span> <span style="color: #f8f8f2">i</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(input[i]</span><span style="color: #f92672">==</span><span style="color: #e6db74">&#39;\t&#39;</span><span style="color: #f8f8f2">)</span>
+        <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(input[i]</span><span style="color: #f92672">==</span><span style="color: #e6db74">'\t'</span><span style="color: #f8f8f2">)</span>
             <span style="color: #f8f8f2">input[i]</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">SEP;</span>
     <span style="color: #f8f8f2">}</span>
     <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">input;</span>
@@ -785,7 +785,7 @@
 <span style="color: #75715e"> * others are moves/</span>
 <span style="color: #75715e"> *</span>
 <span style="color: #75715e"> * @param  line      The string in which the stripping is to take place</span>
-<span style="color: #75715e"> * @param  delimiter The character which is to be stripped. Default : &#39; &#39; (Space)</span>
+<span style="color: #75715e"> * @param  delimiter The character which is to be stripped. Default : ' ' (Space)</span>
 <span style="color: #75715e"> * @return a stripped string with single occurence of the delimiter just after node name and no trailing delimiter.</span>
 <span style="color: #75715e"> */</span>
 <span style="color: #f8f8f2">string</span> <span style="color: #a6e22e">stripAll</span><span style="color: #f8f8f2">(string</span> <span style="color: #f8f8f2">line,</span> <span style="color: #66d9ef">char</span> <span style="color: #f8f8f2">delimiter)</span> <span style="color: #f8f8f2">{</span>
@@ -807,14 +807,14 @@
 <span style="color: #75715e"> * Changes all occurences of a repeated delimiter to single one and removes any trailing delimiters.</span>
 <span style="color: #75715e"> * Done in order to split the string for parsing movements effectively.</span>
 <span style="color: #75715e"> *</span>
-<span style="color: #75715e"> * @param  line      The string in which the stripping is to take place. Default : &#39; &#39; (Space)</span>
+<span style="color: #75715e"> * @param  line      The string in which the stripping is to take place. Default : ' ' (Space)</span>
 <span style="color: #75715e"> * @param  delimiter The character which is to be stripped</span>
 <span style="color: #75715e"> * @return a stripped string with single occurences of the delimiter and no trailing delimiter</span>
 <span style="color: #75715e"> */</span>
 <span style="color: #f8f8f2">string</span> <span style="color: #a6e22e">stripString</span><span style="color: #f8f8f2">(string</span> <span style="color: #f8f8f2">line,</span> <span style="color: #66d9ef">char</span> <span style="color: #f8f8f2">delimiter)</span> <span style="color: #f8f8f2">{</span>
     <span style="color: #f8f8f2">string</span> <span style="color: #f8f8f2">tmp;</span>
     <span style="color: #66d9ef">for</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672"><</span> <span style="color: #f8f8f2">line.length();</span> <span style="color: #f8f8f2">i</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(line[i]</span><span style="color: #f92672">==</span><span style="color: #f8f8f2">delimiter</span><span style="color: #f92672">&amp;&amp;</span><span style="color: #f8f8f2">line[i</span><span style="color: #f92672">+</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">]</span><span style="color: #f92672">==</span><span style="color: #f8f8f2">delimiter)</span>
+        <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(line[i]</span><span style="color: #f92672">==</span><span style="color: #f8f8f2">delimiter</span><span style="color: #f92672">&&</span><span style="color: #f8f8f2">line[i</span><span style="color: #f92672">+</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">]</span><span style="color: #f92672">==</span><span style="color: #f8f8f2">delimiter)</span>
             <span style="color: #66d9ef">continue</span><span style="color: #f8f8f2">;</span>
         <span style="color: #66d9ef">else</span>
             <span style="color: #f8f8f2">tmp</span><span style="color: #f92672">+=</span><span style="color: #f8f8f2">line[i];</span>
@@ -839,8 +839,8 @@
     <span style="color: #66d9ef">for</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672"><=</span><span style="color: #f8f8f2">getSize();</span> <span style="color: #f8f8f2">i</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
         <span style="color: #f8f8f2">findNode(i)</span><span style="color: #f92672">-></span><span style="color: #f8f8f2">up</span>    <span style="color: #f92672">=</span> <span style="color: #f8f8f2">findNode(i</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">getColumns());</span>
         <span style="color: #f8f8f2">findNode(i)</span><span style="color: #f92672">-></span><span style="color: #f8f8f2">down</span>  <span style="color: #f92672">=</span> <span style="color: #f8f8f2">findNode(i</span><span style="color: #f92672">+</span><span style="color: #f8f8f2">getColumns());</span>
-        <span style="color: #f8f8f2">findNode(i)</span><span style="color: #f92672">-></span><span style="color: #f8f8f2">right</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">findNode(filter(i</span><span style="color: #f92672">+</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&#39;R&#39;</span><span style="color: #f8f8f2">));</span>
-        <span style="color: #f8f8f2">findNode(i)</span><span style="color: #f92672">-></span><span style="color: #f8f8f2">left</span>  <span style="color: #f92672">=</span> <span style="color: #f8f8f2">findNode(filter(i</span><span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&#39;L&#39;</span><span style="color: #f8f8f2">));</span>
+        <span style="color: #f8f8f2">findNode(i)</span><span style="color: #f92672">-></span><span style="color: #f8f8f2">right</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">findNode(filter(i</span><span style="color: #f92672">+</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">'R'</span><span style="color: #f8f8f2">));</span>
+        <span style="color: #f8f8f2">findNode(i)</span><span style="color: #f92672">-></span><span style="color: #f8f8f2">left</span>  <span style="color: #f92672">=</span> <span style="color: #f8f8f2">findNode(filter(i</span><span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">'L'</span><span style="color: #f8f8f2">));</span>
     <span style="color: #f8f8f2">}</span>
 <span style="color: #f8f8f2">}</span>
 
@@ -849,7 +849,7 @@
 <span style="color: #75715e"> * Nodes Creator</span>
 <span style="color: #75715e"> * Gets the size of Matrix from @getSize and creates the number of nodes accordingly with assigning unique ID</span>
 <span style="color: #75715e"> * (from 1 to @getSize) to each. Each node takes the name of element from @getMatrix by splitting through common</span>
-<span style="color: #75715e"> * delimeter &#39; &#39; (Space) and is linked next to other for searching and linking purposes.</span>
+<span style="color: #75715e"> * delimeter ' ' (Space) and is linked next to other for searching and linking purposes.</span>
 <span style="color: #75715e"> * A NULL pointer *nul is created for the non-existant nodes with ID of 0 (NUL)</span>
 <span style="color: #75715e"> *</span>
 <span style="color: #75715e"> * @param *curr a Node pointer to start creating nodes from. Default : *start</span>
@@ -863,7 +863,7 @@
         <span style="color: #f8f8f2">curr</span><span style="color: #f92672">-></span><span style="color: #f8f8f2">next</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">(node</span><span style="color: #f92672">*</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">malloc(</span><span style="color: #66d9ef">sizeof</span><span style="color: #f8f8f2">(node));</span>
         <span style="color: #f8f8f2">getline(elements,</span> <span style="color: #f8f8f2">element,</span> <span style="color: #f8f8f2">SEP);</span>
         <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(isalnum(element[</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">]))</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #f8f8f2">curr</span><span style="color: #f92672">-></span><span style="color: #f8f8f2">name[element.copy(curr</span><span style="color: #f92672">-></span><span style="color: #f8f8f2">name,</span> <span style="color: #f8f8f2">element.length())]</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">&#39;\0&#39;</span><span style="color: #f8f8f2">;</span>
+            <span style="color: #f8f8f2">curr</span><span style="color: #f92672">-></span><span style="color: #f8f8f2">name[element.copy(curr</span><span style="color: #f92672">-></span><span style="color: #f8f8f2">name,</span> <span style="color: #f8f8f2">element.length())]</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">'\0'</span><span style="color: #f8f8f2">;</span>
             <span style="color: #f8f8f2">curr</span><span style="color: #f92672">-></span><span style="color: #f8f8f2">id</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">i</span><span style="color: #f92672">+</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
         <span style="color: #f8f8f2">}</span>
         <span style="color: #f8f8f2">curr</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">curr</span><span style="color: #f92672">-></span><span style="color: #f8f8f2">next;</span>
@@ -875,7 +875,7 @@
 <span style="color: #75715e">/**</span>
 <span style="color: #75715e"> * Moves Storage and Formation</span>
 <span style="color: #75715e"> * Firstly ignores all empty lines and uses @stripAll function to remove all delimeters after the node name.</span>
-<span style="color: #75715e"> * Then checks if inputMode is to be enabled by checking if &quot;Input&quot; appears in the line, if does, enables</span>
+<span style="color: #75715e"> * Then checks if inputMode is to be enabled by checking if "Input" appears in the line, if does, enables</span>
 <span style="color: #75715e"> * inputMode.</span>
 <span style="color: #75715e"> * If inputMode is on, starts reading all the starting node names and moves, and stores them in moves</span>
 <span style="color: #75715e"> * global variable.</span>
@@ -889,8 +889,8 @@
         <span style="color: #f8f8f2">line</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">stripAll(line);</span>
         <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(</span><span style="color: #f92672">!</span><span style="color: #f8f8f2">line.empty())</span> <span style="color: #f8f8f2">{</span>
             <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(inputStart)</span>
-                <span style="color: #f8f8f2">moves</span><span style="color: #f92672">+=</span><span style="color: #f8f8f2">line</span><span style="color: #f92672">+</span><span style="color: #e6db74">&quot;</span><span style="color: #ae81ff">\n</span><span style="color: #e6db74">&quot;</span><span style="color: #f8f8f2">;</span>
-            <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(line.find(</span><span style="color: #e6db74">&quot;Input:&quot;</span><span style="color: #f8f8f2">)</span><span style="color: #f92672">!=</span><span style="color: #f8f8f2">string</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">npos</span><span style="color: #f92672">||</span><span style="color: #f8f8f2">line.find(</span><span style="color: #e6db74">&quot;input:&quot;</span><span style="color: #f8f8f2">)</span><span style="color: #f92672">!=</span><span style="color: #f8f8f2">string</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">npos</span><span style="color: #f92672">||</span><span style="color: #f8f8f2">line.find(</span><span style="color: #e6db74">&quot;INPUT:&quot;</span><span style="color: #f8f8f2">)</span><span style="color: #f92672">!=</span><span style="color: #f8f8f2">string</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">npos)</span>
+                <span style="color: #f8f8f2">moves</span><span style="color: #f92672">+=</span><span style="color: #f8f8f2">line</span><span style="color: #f92672">+</span><span style="color: #e6db74">"</span><span style="color: #ae81ff">\n</span><span style="color: #e6db74">"</span><span style="color: #f8f8f2">;</span>
+            <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(line.find(</span><span style="color: #e6db74">"Input:"</span><span style="color: #f8f8f2">)</span><span style="color: #f92672">!=</span><span style="color: #f8f8f2">string</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">npos</span><span style="color: #f92672">||</span><span style="color: #f8f8f2">line.find(</span><span style="color: #e6db74">"input:"</span><span style="color: #f8f8f2">)</span><span style="color: #f92672">!=</span><span style="color: #f8f8f2">string</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">npos</span><span style="color: #f92672">||</span><span style="color: #f8f8f2">line.find(</span><span style="color: #e6db74">"INPUT:"</span><span style="color: #f8f8f2">)</span><span style="color: #f92672">!=</span><span style="color: #f8f8f2">string</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">npos)</span>
                 <span style="color: #f8f8f2">inputStart</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">true;</span>
         <span style="color: #f8f8f2">}</span>
     <span style="color: #f8f8f2">}</span>
@@ -899,14 +899,14 @@
 
 <span style="color: #75715e">/**</span>
 <span style="color: #75715e"> * Matrix Storage and Formation</span>
-<span style="color: #75715e"> * Firstly ignores all empty lines and lines using &#39;//&#39; comment tag, and uses @strpString function to remove</span>
+<span style="color: #75715e"> * Firstly ignores all empty lines and lines using '//' comment tag, and uses @strpString function to remove</span>
 <span style="color: #75715e"> * all repeated delimeters to just one.</span>
-<span style="color: #75715e"> * Then checks if &quot;Input&quot; appears in the line, if does, then calls @initializeMoves function and breaks.</span>
-<span style="color: #75715e"> * If it doesn&#39;t, then starts storing matrix if first letter of line is valid by checking by @validElement</span>
-<span style="color: #75715e"> * function. Matrix is stored by splitting the line through common delimiter space &#39; &#39;, and updates rows, columns</span>
+<span style="color: #75715e"> * Then checks if "Input" appears in the line, if does, then calls @initializeMoves function and breaks.</span>
+<span style="color: #75715e"> * If it doesn't, then starts storing matrix if first letter of line is valid by checking by @validElement</span>
+<span style="color: #75715e"> * function. Matrix is stored by splitting the line through common delimiter space ' ', and updates rows, columns</span>
 <span style="color: #75715e"> * and size accordingly.</span>
 <span style="color: #75715e"> *</span>
-<span style="color: #75715e"> * Note : @stripString, @convertTabs, checking for empty lines and comment tag &#39;//&#39; gives us enough independence to</span>
+<span style="color: #75715e"> * Note : @stripString, @convertTabs, checking for empty lines and comment tag '//' gives us enough independence to</span>
 <span style="color: #75715e"> * form our mesh.txt file with flexibility. Any amount of words, comments, tabs, new and whitespaces can be used in</span>
 <span style="color: #75715e"> * input file to arrange it visually but our code will handle it dynamically given that the matrix elements are</span>
 <span style="color: #75715e"> * separated by at least one delimiter, and, Input moves and starting nodes are separated by at least one delimeter.</span>
@@ -922,9 +922,9 @@
     <span style="color: #66d9ef">for</span><span style="color: #f8f8f2">(string</span> <span style="color: #f8f8f2">line;</span> <span style="color: #f8f8f2">getline(lines,</span> <span style="color: #f8f8f2">line);)</span> <span style="color: #f8f8f2">{</span>
         <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">column</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
         <span style="color: #f8f8f2">line</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">stripString(line);</span>
-        <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(</span><span style="color: #f92672">!</span><span style="color: #f8f8f2">line.empty()</span><span style="color: #f92672">&amp;&amp;!</span><span style="color: #f8f8f2">(line.find(</span><span style="color: #e6db74">&quot;//&quot;</span><span style="color: #f8f8f2">)</span><span style="color: #f92672">!=</span><span style="color: #f8f8f2">string</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">npos))</span> <span style="color: #f8f8f2">{</span>
+        <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(</span><span style="color: #f92672">!</span><span style="color: #f8f8f2">line.empty()</span><span style="color: #f92672">&&!</span><span style="color: #f8f8f2">(line.find(</span><span style="color: #e6db74">"//"</span><span style="color: #f8f8f2">)</span><span style="color: #f92672">!=</span><span style="color: #f8f8f2">string</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">npos))</span> <span style="color: #f8f8f2">{</span>
 
-            <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(line.find(</span><span style="color: #e6db74">&quot;Input:&quot;</span><span style="color: #f8f8f2">)</span><span style="color: #f92672">!=</span><span style="color: #f8f8f2">string</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">npos</span><span style="color: #f92672">||</span><span style="color: #f8f8f2">line.find(</span><span style="color: #e6db74">&quot;input:&quot;</span><span style="color: #f8f8f2">)</span><span style="color: #f92672">!=</span><span style="color: #f8f8f2">string</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">npos</span><span style="color: #f92672">||</span><span style="color: #f8f8f2">line.find(</span><span style="color: #e6db74">&quot;INPUT:&quot;</span><span style="color: #f8f8f2">)</span><span style="color: #f92672">!=</span><span style="color: #f8f8f2">string</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">npos)</span> <span style="color: #f8f8f2">{</span>
+            <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(line.find(</span><span style="color: #e6db74">"Input:"</span><span style="color: #f8f8f2">)</span><span style="color: #f92672">!=</span><span style="color: #f8f8f2">string</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">npos</span><span style="color: #f92672">||</span><span style="color: #f8f8f2">line.find(</span><span style="color: #e6db74">"input:"</span><span style="color: #f8f8f2">)</span><span style="color: #f92672">!=</span><span style="color: #f8f8f2">string</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">npos</span><span style="color: #f92672">||</span><span style="color: #f8f8f2">line.find(</span><span style="color: #e6db74">"INPUT:"</span><span style="color: #f8f8f2">)</span><span style="color: #f92672">!=</span><span style="color: #f8f8f2">string</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">npos)</span> <span style="color: #f8f8f2">{</span>
                 <span style="color: #f8f8f2">initializeMoves(input);</span>
                 <span style="color: #66d9ef">break</span><span style="color: #f8f8f2">;</span>
             <span style="color: #f8f8f2">}</span>
@@ -958,42 +958,42 @@
 <span style="color: #f8f8f2">string</span> <span style="color: #a6e22e">parseMoves</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
     <span style="color: #f8f8f2">stringstream</span> <span style="color: #f8f8f2">lines(getMoves());</span>
 
-    <span style="color: #f8f8f2">string</span> <span style="color: #f8f8f2">output</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">&quot;Node Traversing Output Text</span><span style="color: #ae81ff">\n\n</span><span style="color: #e6db74"> Sample Output:-</span><span style="color: #ae81ff">\n\t</span><span style="color: #e6db74">Start starting_node&quot;</span>
-                    <span style="color: #e6db74">&quot; :- first->movement->next    next->movement->final ... final->movement->Null</span><span style="color: #ae81ff">\n\n\n</span><span style="color: #e6db74">&quot;</span><span style="color: #f8f8f2">;</span>
+    <span style="color: #f8f8f2">string</span> <span style="color: #f8f8f2">output</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">"Node Traversing Output Text</span><span style="color: #ae81ff">\n\n</span><span style="color: #e6db74"> Sample Output:-</span><span style="color: #ae81ff">\n\t</span><span style="color: #e6db74">Start starting_node"</span>
+                    <span style="color: #e6db74">" :- first->movement->next    next->movement->final ... final->movement->Null</span><span style="color: #ae81ff">\n\n\n</span><span style="color: #e6db74">"</span><span style="color: #f8f8f2">;</span>
 
     <span style="color: #66d9ef">for</span><span style="color: #f8f8f2">(string</span> <span style="color: #f8f8f2">line;</span> <span style="color: #f8f8f2">getline(lines,</span> <span style="color: #f8f8f2">line);)</span> <span style="color: #f8f8f2">{</span>
         <span style="color: #f8f8f2">node</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">tmp</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">findNode(line.substr(</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">line.find(SEP)));</span>
         <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(notNull(tmp))</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #f8f8f2">output</span><span style="color: #f92672">+=</span><span style="color: #e6db74">&quot;Start &quot;</span><span style="color: #f92672">+</span><span style="color: #f8f8f2">string(tmp</span><span style="color: #f92672">-></span><span style="color: #f8f8f2">name)</span><span style="color: #f92672">+</span><span style="color: #e6db74">&quot; :-   &quot;</span><span style="color: #f8f8f2">;</span>
+            <span style="color: #f8f8f2">output</span><span style="color: #f92672">+=</span><span style="color: #e6db74">"Start "</span><span style="color: #f92672">+</span><span style="color: #f8f8f2">string(tmp</span><span style="color: #f92672">-></span><span style="color: #f8f8f2">name)</span><span style="color: #f92672">+</span><span style="color: #e6db74">" :-   "</span><span style="color: #f8f8f2">;</span>
             <span style="color: #66d9ef">for</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">line.find(SEP)</span><span style="color: #f92672">+</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672"><</span> <span style="color: #f8f8f2">line.length();</span> <span style="color: #f8f8f2">i</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
                 <span style="color: #f8f8f2">output</span><span style="color: #f92672">+=</span><span style="color: #f8f8f2">string(tmp</span><span style="color: #f92672">-></span><span style="color: #f8f8f2">name);</span>
-                <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(line[i]</span><span style="color: #f92672">==</span><span style="color: #e6db74">&#39;u&#39;</span><span style="color: #f92672">||</span><span style="color: #f8f8f2">line[i]</span><span style="color: #f92672">==</span><span style="color: #e6db74">&#39;U&#39;</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
+                <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(line[i]</span><span style="color: #f92672">==</span><span style="color: #e6db74">'u'</span><span style="color: #f92672">||</span><span style="color: #f8f8f2">line[i]</span><span style="color: #f92672">==</span><span style="color: #e6db74">'U'</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
                     <span style="color: #f8f8f2">tmp</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">tmp</span><span style="color: #f92672">-></span><span style="color: #f8f8f2">up;</span>
-                    <span style="color: #f8f8f2">output</span><span style="color: #f92672">+=</span><span style="color: #e6db74">&quot;->U->&quot;</span><span style="color: #f8f8f2">;</span>
-                <span style="color: #f8f8f2">}</span> <span style="color: #66d9ef">else</span> <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(line[i]</span><span style="color: #f92672">==</span><span style="color: #e6db74">&#39;d&#39;</span><span style="color: #f92672">||</span><span style="color: #f8f8f2">line[i]</span><span style="color: #f92672">==</span><span style="color: #e6db74">&#39;D&#39;</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
+                    <span style="color: #f8f8f2">output</span><span style="color: #f92672">+=</span><span style="color: #e6db74">"->U->"</span><span style="color: #f8f8f2">;</span>
+                <span style="color: #f8f8f2">}</span> <span style="color: #66d9ef">else</span> <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(line[i]</span><span style="color: #f92672">==</span><span style="color: #e6db74">'d'</span><span style="color: #f92672">||</span><span style="color: #f8f8f2">line[i]</span><span style="color: #f92672">==</span><span style="color: #e6db74">'D'</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
                     <span style="color: #f8f8f2">tmp</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">tmp</span><span style="color: #f92672">-></span><span style="color: #f8f8f2">down;</span>
-                    <span style="color: #f8f8f2">output</span><span style="color: #f92672">+=</span><span style="color: #e6db74">&quot;->D->&quot;</span><span style="color: #f8f8f2">;</span>
-                <span style="color: #f8f8f2">}</span> <span style="color: #66d9ef">else</span> <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(line[i]</span><span style="color: #f92672">==</span><span style="color: #e6db74">&#39;l&#39;</span><span style="color: #f92672">||</span><span style="color: #f8f8f2">line[i]</span><span style="color: #f92672">==</span><span style="color: #e6db74">&#39;L&#39;</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
+                    <span style="color: #f8f8f2">output</span><span style="color: #f92672">+=</span><span style="color: #e6db74">"->D->"</span><span style="color: #f8f8f2">;</span>
+                <span style="color: #f8f8f2">}</span> <span style="color: #66d9ef">else</span> <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(line[i]</span><span style="color: #f92672">==</span><span style="color: #e6db74">'l'</span><span style="color: #f92672">||</span><span style="color: #f8f8f2">line[i]</span><span style="color: #f92672">==</span><span style="color: #e6db74">'L'</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
                     <span style="color: #f8f8f2">tmp</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">tmp</span><span style="color: #f92672">-></span><span style="color: #f8f8f2">left;</span>
-                    <span style="color: #f8f8f2">output</span><span style="color: #f92672">+=</span><span style="color: #e6db74">&quot;->L->&quot;</span><span style="color: #f8f8f2">;</span>
-                <span style="color: #f8f8f2">}</span> <span style="color: #66d9ef">else</span> <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(line[i]</span><span style="color: #f92672">==</span><span style="color: #e6db74">&#39;r&#39;</span><span style="color: #f92672">||</span><span style="color: #f8f8f2">line[i]</span><span style="color: #f92672">==</span><span style="color: #e6db74">&#39;R&#39;</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
+                    <span style="color: #f8f8f2">output</span><span style="color: #f92672">+=</span><span style="color: #e6db74">"->L->"</span><span style="color: #f8f8f2">;</span>
+                <span style="color: #f8f8f2">}</span> <span style="color: #66d9ef">else</span> <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(line[i]</span><span style="color: #f92672">==</span><span style="color: #e6db74">'r'</span><span style="color: #f92672">||</span><span style="color: #f8f8f2">line[i]</span><span style="color: #f92672">==</span><span style="color: #e6db74">'R'</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
                     <span style="color: #f8f8f2">tmp</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">tmp</span><span style="color: #f92672">-></span><span style="color: #f8f8f2">right;</span>
-                    <span style="color: #f8f8f2">output</span><span style="color: #f92672">+=</span><span style="color: #e6db74">&quot;->R->&quot;</span><span style="color: #f8f8f2">;</span>
+                    <span style="color: #f8f8f2">output</span><span style="color: #f92672">+=</span><span style="color: #e6db74">"->R->"</span><span style="color: #f8f8f2">;</span>
                 <span style="color: #f8f8f2">}</span> <span style="color: #66d9ef">else</span> <span style="color: #f8f8f2">{</span>
-                    <span style="color: #f8f8f2">output</span><span style="color: #f92672">+=</span><span style="color: #e6db74">&quot;->Invalid Move&quot;</span><span style="color: #f8f8f2">;</span>
+                    <span style="color: #f8f8f2">output</span><span style="color: #f92672">+=</span><span style="color: #e6db74">"->Invalid Move"</span><span style="color: #f8f8f2">;</span>
                     <span style="color: #66d9ef">break</span><span style="color: #f8f8f2">;</span>
                 <span style="color: #f8f8f2">}</span>
                 <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(notNull(tmp))</span>
-                    <span style="color: #f8f8f2">output</span><span style="color: #f92672">+=</span><span style="color: #f8f8f2">string(tmp</span><span style="color: #f92672">-></span><span style="color: #f8f8f2">name)</span><span style="color: #f92672">+</span><span style="color: #e6db74">&quot;    &quot;</span><span style="color: #f8f8f2">;</span>
+                    <span style="color: #f8f8f2">output</span><span style="color: #f92672">+=</span><span style="color: #f8f8f2">string(tmp</span><span style="color: #f92672">-></span><span style="color: #f8f8f2">name)</span><span style="color: #f92672">+</span><span style="color: #e6db74">"    "</span><span style="color: #f8f8f2">;</span>
                 <span style="color: #66d9ef">else</span> <span style="color: #f8f8f2">{</span>
-                    <span style="color: #f8f8f2">output</span><span style="color: #f92672">+=</span><span style="color: #e6db74">&quot;Null&quot;</span><span style="color: #f8f8f2">;</span>
+                    <span style="color: #f8f8f2">output</span><span style="color: #f92672">+=</span><span style="color: #e6db74">"Null"</span><span style="color: #f8f8f2">;</span>
                     <span style="color: #66d9ef">break</span><span style="color: #f8f8f2">;</span>
                 <span style="color: #f8f8f2">}</span>
 
             <span style="color: #f8f8f2">}</span>
-            <span style="color: #f8f8f2">output</span><span style="color: #f92672">+=</span><span style="color: #e6db74">&quot;</span><span style="color: #ae81ff">\n</span><span style="color: #e6db74">&quot;</span><span style="color: #f8f8f2">;</span>
+            <span style="color: #f8f8f2">output</span><span style="color: #f92672">+=</span><span style="color: #e6db74">"</span><span style="color: #ae81ff">\n</span><span style="color: #e6db74">"</span><span style="color: #f8f8f2">;</span>
         <span style="color: #f8f8f2">}</span> <span style="color: #66d9ef">else</span>
-            <span style="color: #f8f8f2">output</span><span style="color: #f92672">+=</span><span style="color: #f8f8f2">line.substr(</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">line.find(SEP))</span><span style="color: #f92672">+</span><span style="color: #e6db74">&quot; is an invalid element name</span><span style="color: #ae81ff">\n</span><span style="color: #e6db74">&quot;</span><span style="color: #f8f8f2">;</span>
+            <span style="color: #f8f8f2">output</span><span style="color: #f92672">+=</span><span style="color: #f8f8f2">line.substr(</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">line.find(SEP))</span><span style="color: #f92672">+</span><span style="color: #e6db74">" is an invalid element name</span><span style="color: #ae81ff">\n</span><span style="color: #e6db74">"</span><span style="color: #f8f8f2">;</span>
     <span style="color: #f8f8f2">}</span>
     <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">output;</span>
 <span style="color: #f8f8f2">}</span>
