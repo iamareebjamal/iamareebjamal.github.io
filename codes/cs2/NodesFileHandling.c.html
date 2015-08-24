@@ -1,0 +1,332 @@
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"><span style="color:#a5a19e">  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25
+ 26
+ 27
+ 28
+ 29
+ 30
+ 31
+ 32
+ 33
+ 34
+ 35
+ 36
+ 37
+ 38
+ 39
+ 40
+ 41
+ 42
+ 43
+ 44
+ 45
+ 46
+ 47
+ 48
+ 49
+ 50
+ 51
+ 52
+ 53
+ 54
+ 55
+ 56
+ 57
+ 58
+ 59
+ 60
+ 61
+ 62
+ 63
+ 64
+ 65
+ 66
+ 67
+ 68
+ 69
+ 70
+ 71
+ 72
+ 73
+ 74
+ 75
+ 76
+ 77
+ 78
+ 79
+ 80
+ 81
+ 82
+ 83
+ 84
+ 85
+ 86
+ 87
+ 88
+ 89
+ 90
+ 91
+ 92
+ 93
+ 94
+ 95
+ 96
+ 97
+ 98
+ 99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166</span></pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #f92672">#include</span> <span style="color:#e6db74">&lt;stdio.h&gt;</span>
+<span style="color: #f92672">#include</span> <span style="color:#e6db74">&lt;string.h&gt;</span>
+<span style="color: #f92672">#include</span> <span style="color:#e6db74">&lt;stdlib.h&gt;</span>
+
+<span style="color: #66d9ef">struct</span> <span style="color: #f8f8f2">Node</span> <span style="color: #f8f8f2">{</span>
+    <span style="color: #66d9ef">char</span> <span style="color: #f8f8f2">name;</span>
+    <span style="color: #66d9ef">struct</span> <span style="color: #f8f8f2">Node</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">up;</span>
+    <span style="color: #66d9ef">struct</span> <span style="color: #f8f8f2">Node</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">down;</span>
+    <span style="color: #66d9ef">struct</span> <span style="color: #f8f8f2">Node</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">left;</span>
+    <span style="color: #66d9ef">struct</span> <span style="color: #f8f8f2">Node</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">right;</span>
+<span style="color: #f8f8f2">}</span><span style="color: #f92672">*</span><span style="color: #f8f8f2">current,</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">next,</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">start,</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">tmp,</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">nul;</span>
+
+<span style="color: #66d9ef">char</span> <span style="color: #f8f8f2">moves[</span><span style="color: #ae81ff">128</span><span style="color: #f8f8f2">];</span>
+<span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">rows,</span> <span style="color: #f8f8f2">cols;</span>
+
+<span style="color: #66d9ef">struct</span> <span style="color: #f8f8f2">Node</span><span style="color: #f92672">*</span> <span style="color: #a6e22e">search</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">char</span> <span style="color: #f8f8f2">name)</span> <span style="color: #f8f8f2">{</span>
+    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i,</span> <span style="color: #f8f8f2">j;</span>
+    <span style="color: #f8f8f2">current</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">start;</span>
+    <span style="color: #66d9ef">for</span><span style="color: #f8f8f2">(i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">rows;</span> <span style="color: #f8f8f2">i</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
+        <span style="color: #66d9ef">for</span><span style="color: #f8f8f2">(j</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">cols</span><span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">j</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
+            <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(name</span><span style="color: #f92672">==</span><span style="color: #f8f8f2">current</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">name)</span>
+                <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">current;</span>
+
+            <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(i</span><span style="color: #f92672">%</span><span style="color: #ae81ff">2</span><span style="color: #f92672">==</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">)</span>
+                <span style="color: #f8f8f2">current</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">current</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">right;</span>
+            <span style="color: #66d9ef">else</span>
+                <span style="color: #f8f8f2">current</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">current</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">left;</span>
+
+            <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(name</span><span style="color: #f92672">==</span><span style="color: #f8f8f2">current</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">name)</span>
+                <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">current;</span>
+        <span style="color: #f8f8f2">}</span>
+        <span style="color: #f8f8f2">current</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">current</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">down;</span>
+    <span style="color: #f8f8f2">}</span>
+    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">nul;</span>
+<span style="color: #f8f8f2">}</span>
+
+<span style="color: #66d9ef">int</span> <span style="color: #a6e22e">shouldBeNull</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">char</span> <span style="color: #f8f8f2">name)</span> <span style="color: #f8f8f2">{</span>
+    <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">((name</span><span style="color: #f92672">&gt;=</span><span style="color: #e6db74">&#39;A&#39;</span><span style="color: #f92672">&amp;&amp;</span><span style="color: #f8f8f2">name</span><span style="color: #f92672">&lt;=</span><span style="color: #e6db74">&#39;Z&#39;</span><span style="color: #f8f8f2">)</span><span style="color: #f92672">||</span><span style="color: #f8f8f2">(name</span><span style="color: #f92672">&gt;=</span><span style="color: #e6db74">&#39;a&#39;</span><span style="color: #f92672">&amp;&amp;</span><span style="color: #f8f8f2">name</span><span style="color: #f92672">&lt;=</span><span style="color: #e6db74">&#39;z&#39;</span><span style="color: #f8f8f2">)</span><span style="color: #f92672">||</span><span style="color: #f8f8f2">(name</span><span style="color: #f92672">&gt;=</span><span style="color: #e6db74">&#39;0&#39;</span><span style="color: #f92672">&amp;&amp;</span><span style="color: #f8f8f2">name</span><span style="color: #f92672">&lt;=</span><span style="color: #e6db74">&#39;9&#39;</span><span style="color: #f8f8f2">))</span>
+        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">false;</span>
+    <span style="color: #66d9ef">else</span>
+        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">true;</span>
+<span style="color: #f8f8f2">}</span>
+
+<span style="color: #66d9ef">int</span> <span style="color: #a6e22e">main</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
+    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">inputFound</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">false,</span> <span style="color: #f8f8f2">i,</span> <span style="color: #f8f8f2">j,</span> <span style="color: #f8f8f2">flag</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">true;</span>
+    <span style="color: #66d9ef">char</span> <span style="color: #f8f8f2">line[</span><span style="color: #ae81ff">128</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">{</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">},</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">out;</span>
+    <span style="color: #66d9ef">FILE</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">fp</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">fopen(</span><span style="color: #e6db74">&quot;mesh.txt&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;r&quot;</span><span style="color: #f8f8f2">);</span>
+    <span style="color: #66d9ef">FILE</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">op</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">fopen(</span><span style="color: #e6db74">&quot;output.txt&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;w+&quot;</span><span style="color: #f8f8f2">);</span>
+    <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(fp</span><span style="color: #f92672">==</span><span style="color: #f8f8f2">NULL)</span> <span style="color: #f8f8f2">{</span>
+        <span style="color: #f8f8f2">printf(</span><span style="color: #e6db74">&quot;Error opening file&quot;</span><span style="color: #f8f8f2">);</span>
+        <span style="color: #66d9ef">return</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
+    <span style="color: #f8f8f2">}</span>
+
+    <span style="color: #f8f8f2">start</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">struct</span> <span style="color: #f8f8f2">Node</span><span style="color: #f92672">*</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">malloc(</span><span style="color: #66d9ef">sizeof</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">struct</span> <span style="color: #f8f8f2">Node));</span>
+    <span style="color: #f8f8f2">nul</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">struct</span> <span style="color: #f8f8f2">Node</span><span style="color: #f92672">*</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">malloc(</span><span style="color: #66d9ef">sizeof</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">struct</span> <span style="color: #f8f8f2">Node));</span>
+    <span style="color: #f8f8f2">current</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">start;</span>
+
+    <span style="color: #66d9ef">while</span><span style="color: #f8f8f2">(fgets(line,</span> <span style="color: #66d9ef">sizeof</span><span style="color: #f8f8f2">(line),</span> <span style="color: #f8f8f2">fp)</span><span style="color: #f92672">!=</span><span style="color: #f8f8f2">NULL)</span> <span style="color: #f8f8f2">{</span>
+        <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(line[</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">]</span><span style="color: #f92672">!=</span><span style="color: #e6db74">&#39;\n&#39;</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
+            <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">end</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span><span style="color: #f8f8f2">)strlen(line);</span>
+            <span style="color: #f8f8f2">line[end]</span><span style="color: #f92672">=</span><span style="color: #e6db74">&#39;\0&#39;</span><span style="color: #f8f8f2">;</span>
+
+            <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(strstr(line,</span> <span style="color: #e6db74">&quot;Input:&quot;</span><span style="color: #f8f8f2">))</span>
+                <span style="color: #f8f8f2">inputFound</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">true;</span>
+
+            <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(inputFound)</span> <span style="color: #f8f8f2">{</span>
+                <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(</span><span style="color: #f92672">!</span><span style="color: #f8f8f2">strstr(line,</span> <span style="color: #e6db74">&quot;Input&quot;</span><span style="color: #f8f8f2">))</span> <span style="color: #f8f8f2">{</span>
+                    <span style="color: #66d9ef">for</span><span style="color: #f8f8f2">(i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">line[i]</span><span style="color: #f92672">!=</span><span style="color: #e6db74">&#39;\n&#39;</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
+                        <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(line[i]</span><span style="color: #f92672">!=</span><span style="color: #e6db74">&#39; &#39;</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
+                            <span style="color: #f8f8f2">moves[strlen(moves)]</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">line[i];</span>
+                        <span style="color: #f8f8f2">}</span>
+                    <span style="color: #f8f8f2">}</span>
+                    <span style="color: #f8f8f2">strcat(moves,</span> <span style="color: #e6db74">&quot;</span><span style="color: #ae81ff">\n</span><span style="color: #e6db74">&quot;</span><span style="color: #f8f8f2">);</span>
+                <span style="color: #f8f8f2">}</span>
+
+            <span style="color: #f8f8f2">}</span> <span style="color: #66d9ef">else</span> <span style="color: #f8f8f2">{</span>
+                <span style="color: #f8f8f2">j</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
+                <span style="color: #66d9ef">for</span><span style="color: #f8f8f2">(i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">line[i]</span><span style="color: #f92672">!=</span><span style="color: #e6db74">&#39;\0&#39;</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span><span style="color: #f92672">+=</span><span style="color: #ae81ff">2</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
+                    <span style="color: #f8f8f2">next</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">struct</span> <span style="color: #f8f8f2">Node</span><span style="color: #f92672">*</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">malloc(</span><span style="color: #66d9ef">sizeof</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">struct</span> <span style="color: #f8f8f2">Node));</span>
+                    <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(</span><span style="color: #f92672">!</span><span style="color: #f8f8f2">shouldBeNull(line[i]))</span>
+                        <span style="color: #f8f8f2">current</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">name</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">line[i];</span>
+                    <span style="color: #f8f8f2">current</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">right</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">next;</span>
+                    <span style="color: #f8f8f2">next</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">left</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">current;</span>
+                    <span style="color: #f8f8f2">current</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">current</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">right;</span>
+
+                    <span style="color: #f92672">++</span><span style="color: #f8f8f2">j;</span>
+                    <span style="color: #f8f8f2">cols</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">j;</span>
+                <span style="color: #f8f8f2">}</span>
+                <span style="color: #66d9ef">while</span><span style="color: #f8f8f2">(j</span><span style="color: #f92672">--</span><span style="color: #f8f8f2">)</span>
+                    <span style="color: #f8f8f2">current</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">current</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">left;</span>
+                <span style="color: #f8f8f2">next</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">struct</span> <span style="color: #f8f8f2">Node</span><span style="color: #f92672">*</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">malloc(</span><span style="color: #66d9ef">sizeof</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">struct</span> <span style="color: #f8f8f2">Node));</span>
+                <span style="color: #f8f8f2">current</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">down</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">next;</span>
+                <span style="color: #f8f8f2">next</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">up</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">current;</span>
+                <span style="color: #f8f8f2">current</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">current</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">down;</span>
+                <span style="color: #f92672">++</span><span style="color: #f8f8f2">rows;</span>
+            <span style="color: #f8f8f2">}</span>
+        <span style="color: #f8f8f2">}</span>
+    <span style="color: #f8f8f2">}</span>
+    <span style="color: #f8f8f2">moves[strlen(moves)]</span><span style="color: #f92672">=</span><span style="color: #e6db74">&#39;\0&#39;</span><span style="color: #f8f8f2">;</span>
+
+    <span style="color: #f8f8f2">current</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">start;</span>
+    <span style="color: #f8f8f2">next</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">current</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">down;</span>
+    <span style="color: #66d9ef">for</span><span style="color: #f8f8f2">(i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">rows</span><span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
+        <span style="color: #66d9ef">for</span><span style="color: #f8f8f2">(j</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">cols</span><span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">j</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
+            <span style="color: #f8f8f2">current</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">current</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">right;</span>
+            <span style="color: #f8f8f2">next</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">next</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">right;</span>
+            <span style="color: #f8f8f2">current</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">down</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">next;</span>
+            <span style="color: #f8f8f2">next</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">up</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">current;</span>
+        <span style="color: #f8f8f2">}</span>
+        <span style="color: #f8f8f2">j</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">cols</span><span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
+        <span style="color: #66d9ef">while</span><span style="color: #f8f8f2">(j</span><span style="color: #f92672">--</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
+            <span style="color: #f8f8f2">current</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">current</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">left;</span>
+            <span style="color: #f8f8f2">next</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">next</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">left;</span>
+        <span style="color: #f8f8f2">}</span>
+        <span style="color: #f8f8f2">current</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">current</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">down;</span>
+        <span style="color: #f8f8f2">next</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">next</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">down;</span>
+    <span style="color: #f8f8f2">}</span>
+
+    <span style="color: #66d9ef">for</span><span style="color: #f8f8f2">(i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">strlen(moves);</span> <span style="color: #f8f8f2">i</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
+        <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(moves[i]</span><span style="color: #f92672">!=</span><span style="color: #e6db74">&#39;\n&#39;</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
+
+            <span style="color: #f8f8f2">current</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">search(moves[i]);</span>
+            <span style="color: #f8f8f2">flag</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">true;</span>
+            <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(</span><span style="color: #f92672">!</span><span style="color: #f8f8f2">current</span><span style="color: #f92672">||</span><span style="color: #f8f8f2">current</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">name</span><span style="color: #f92672">==</span><span style="color: #f8f8f2">NULL)</span> <span style="color: #f8f8f2">{</span>
+                <span style="color: #f8f8f2">fprintf(op,</span> <span style="color: #e6db74">&quot;No node</span><span style="color: #ae81ff">\n</span><span style="color: #e6db74">&quot;</span><span style="color: #f8f8f2">);</span>
+                <span style="color: #66d9ef">for</span><span style="color: #f8f8f2">(j</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">i</span><span style="color: #f92672">+</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">moves[j]</span><span style="color: #f92672">!=</span><span style="color: #e6db74">&#39;\n&#39;</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">j</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
+                    <span style="color: #f8f8f2">i</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">j;</span>
+                <span style="color: #f8f8f2">};</span>
+            <span style="color: #f8f8f2">}</span> <span style="color: #66d9ef">else</span> <span style="color: #f8f8f2">{</span>
+                <span style="color: #f8f8f2">fprintf(op,</span> <span style="color: #e6db74">&quot;%c &quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">current</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">name);</span>
+                <span style="color: #66d9ef">for</span><span style="color: #f8f8f2">(j</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">i</span><span style="color: #f92672">+</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">moves[j]</span><span style="color: #f92672">!=</span><span style="color: #e6db74">&#39;\n&#39;</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">j</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
+                    <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(flag)</span> <span style="color: #f8f8f2">{</span>
+                        <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(moves[j]</span><span style="color: #f92672">==</span><span style="color: #e6db74">&#39;u&#39;</span><span style="color: #f8f8f2">)</span>
+                            <span style="color: #f8f8f2">current</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">(current</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">up)</span><span style="color: #f92672">?</span><span style="color: #f8f8f2">(current</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">up)</span><span style="color: #f92672">:</span><span style="color: #f8f8f2">nul;</span>
+                        <span style="color: #66d9ef">else</span> <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(moves[j]</span><span style="color: #f92672">==</span><span style="color: #e6db74">&#39;r&#39;</span><span style="color: #f8f8f2">)</span>
+                            <span style="color: #f8f8f2">current</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">(current</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">right)</span><span style="color: #f92672">?</span><span style="color: #f8f8f2">(current</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">right)</span><span style="color: #f92672">:</span><span style="color: #f8f8f2">nul;</span>
+                        <span style="color: #66d9ef">else</span> <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(moves[j]</span><span style="color: #f92672">==</span><span style="color: #e6db74">&#39;l&#39;</span><span style="color: #f8f8f2">)</span>
+                            <span style="color: #f8f8f2">current</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">(current</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">left)</span><span style="color: #f92672">?</span><span style="color: #f8f8f2">(current</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">left)</span><span style="color: #f92672">:</span><span style="color: #f8f8f2">nul;</span>
+                        <span style="color: #66d9ef">else</span> <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(moves[j]</span><span style="color: #f92672">==</span><span style="color: #e6db74">&#39;d&#39;</span><span style="color: #f8f8f2">)</span>
+                            <span style="color: #f8f8f2">current</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">(current</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">down)</span><span style="color: #f92672">?</span><span style="color: #f8f8f2">(current</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">down)</span><span style="color: #f92672">:</span><span style="color: #f8f8f2">nul;</span>
+                        <span style="color: #66d9ef">else</span> <span style="color: #f8f8f2">{</span>
+                            <span style="color: #f8f8f2">fprintf(op,</span> <span style="color: #e6db74">&quot;Invalid Move&quot;</span><span style="color: #f8f8f2">);</span>
+                            <span style="color: #f8f8f2">flag</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">false;</span>
+                        <span style="color: #f8f8f2">}</span>
+
+                        <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(flag)</span> <span style="color: #f8f8f2">{</span>
+                            <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(</span><span style="color: #f92672">!</span><span style="color: #f8f8f2">current</span><span style="color: #f92672">||</span><span style="color: #f8f8f2">current</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">name)</span>
+                                <span style="color: #f8f8f2">fprintf(op,</span> <span style="color: #e6db74">&quot;%c %c &quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">moves[j],</span> <span style="color: #f8f8f2">current</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">name);</span>
+                            <span style="color: #66d9ef">else</span> <span style="color: #f8f8f2">{</span>
+                                <span style="color: #f8f8f2">fprintf(op,</span> <span style="color: #e6db74">&quot;NULL&quot;</span><span style="color: #f8f8f2">);</span>
+                                <span style="color: #f8f8f2">flag</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">false;</span>
+                            <span style="color: #f8f8f2">}</span>
+                        <span style="color: #f8f8f2">}</span>
+                    <span style="color: #f8f8f2">}</span>
+                <span style="color: #f8f8f2">}</span>
+                <span style="color: #f8f8f2">i</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">j;</span>
+                <span style="color: #f8f8f2">fprintf(op,</span> <span style="color: #e6db74">&quot;</span><span style="color: #ae81ff">\n</span><span style="color: #e6db74">&quot;</span><span style="color: #f8f8f2">);</span>
+            <span style="color: #f8f8f2">}</span>
+        <span style="color: #f8f8f2">}</span>
+    <span style="color: #f8f8f2">}</span>
+
+    <span style="color: #f8f8f2">fclose(op);</span>
+    <span style="color: #f8f8f2">fclose(fp);</span>
+    <span style="color: #f8f8f2">printf(</span><span style="color: #e6db74">&quot;Output File written successfully</span><span style="color: #ae81ff">\n</span><span style="color: #e6db74">&quot;</span><span style="color: #f8f8f2">);</span>
+
+<span style="color: #f8f8f2">}</span>
+</pre></td></tr></table></div>
