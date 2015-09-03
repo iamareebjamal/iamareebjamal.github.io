@@ -1,16 +1,16 @@
-Since bitwise operators work only on integer and character, we can only take small sets. That's because int type supports max 32 bit binary number in modern compilers. That's 2^32 - 1 in decimal. 
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #75715e">Since bitwise operators work only on integer and character, we can only take small sets. That&#39;s because int type supports max 32 bit binary number in modern compilers. That&#39;s 2^32 - 1 in decimal. 
 
-Now, since each element of a set will be represented by a bit 0 or 1, set can't have more than 32 elements or in a way, not more than 32 bits. 
+Now, since each element of a set will be represented by a bit 0 or 1, set can&#39;t have more than 32 elements or in a way, not more than 32 bits. 
 
 Note : If in any way, you write a set with more than 32 elements, the integer bit set is bound to go unpredictable as it will push over to negative extreme and give a negative value with an undesired binary numeral. 
 
 
 How to define bit sets?  
 Bit sets here will be of the size of Universal Set and will correspond to the presence of an element in a particular set.  
-Let's take an example :
+Let&#39;s take an example :
 
 Let Universal set be : U = {0, 1, 2, 3, 4, 5}  
-(Set doesn't always need to be of int type, here it's just used for simplicity, you can even use string) 
+(Set doesn&#39;t always need to be of int type, here it&#39;s just used for simplicity, you can even use string) 
 
 Now, let set A be {2, 4}  
 and set B be {1, 3, 2, 0}
@@ -22,7 +22,7 @@ Now we need to create bit sets of sets A and B. These bit sets will contain only
 Start comparing elements of universal set with set A (using nested loop). If 1st element is found in A, set 1st bit to 1, else 0.  
 Then check for 2nd element of universal set and so on. 
 
-For this example, it'll be proceeded like this :  
+For this example, it&#39;ll be proceeded like this :  
 0 - Not Found - 0  
 1 - Not Found - 0  
 2 - Found     - 1  
@@ -32,30 +32,30 @@ For this example, it'll be proceeded like this :
 
 So, the binary number we get it 001010
 Which is of 6 bits (size of universal set)  
-You can see clearly that cardinality of universal set doesn't matter as all other bits are set to zero by default. 
+You can see clearly that cardinality of universal set doesn&#39;t matter as all other bits are set to zero by default. 
 
-Now, we'll learn set to set bits in a number.  
+Now, we&#39;ll learn set to set bits in a number.  
 We create an int setA =0;  
 All bits are set to 0. To set 3rd bit to 1, we will use OR operator and bitwise left shift.  
-    setA |= 1<<2;  
-=> setA = setA | 1<<2;  
-=> 1<<2 => 00000001<<2  
+    setA |= 1&lt;&lt;2;  
+=&gt; setA = setA | 1&lt;&lt;2;  
+=&gt; 1&lt;&lt;2 =&gt; 00000001&lt;&lt;2  
 Meaning that the 1 will left shifted to  2 places 
-=> 00000001 << 2 = 00000100  
-=> 00000000 | 00000100 = 00000100
+=&gt; 00000001 &lt;&lt; 2 = 00000100  
+=&gt; 00000000 | 00000100 = 00000100
 
-Now, our bit set's 3rd bit is ON, telling us that third element of universal set is present in this set. 
+Now, our bit set&#39;s 3rd bit is ON, telling us that third element of universal set is present in this set. 
 
-Now, why did we use OR operator here, 1<<2 already gave us 3rd bit ON. Let's see what happens next :
+Now, why did we use OR operator here, 1&lt;&lt;2 already gave us 3rd bit ON. Let&#39;s see what happens next :
 
 Now, we find out that except 3rd element, 5th element is also in set A, so we need to turn ON 5th bit of setA bit set too. 
 
-    setA |= 1<<4;  
-=> 00000100 | 00010000 = 00010100
+    setA |= 1&lt;&lt;4;  
+=&gt; 00000100 | 00010000 = 00010100
 
-Now setA's value is exactly what we saw above, if we didn't use OR operator, the 2nd bit's ON state would have been lost and we would have been only left with 4th bit ON.  
+Now setA&#39;s value is exactly what we saw above, if we didn&#39;t use OR operator, the 2nd bit&#39;s ON state would have been lost and we would have been only left with 4th bit ON.  
 
-Now, we have created an integer bit set setA, now we'll similarly create bit set B, which will be equal to.  
+Now, we have created an integer bit set setA, now we&#39;ll similarly create bit set B, which will be equal to.  
 0 - Found     - 1  
 1 - Found     - 1  
 2 - Found     - 1  
@@ -64,7 +64,7 @@ Now, we have created an integer bit set setA, now we'll similarly create bit set
 5 - Not Found - 0  
 
 So, setB will be equal to 11110000  
-(Here we are considering 8 bits, don't worry about it, compiler handles it on its own, just make sure that your set doesn't contain more than 32 elements) 
+(Here we are considering 8 bits, don&#39;t worry about it, compiler handles it on its own, just make sure that your set doesn&#39;t contain more than 32 elements) 
 
 80% of the work is done.  
 We have got our bit sets, which are  
@@ -77,25 +77,25 @@ setA|setB = 11111000
 Which corresponds to 0 1 2 3 4  
 And is in fact union of both sets 
 
-setA&setB = 00100000  
+setA&amp;setB = 00100000  
 Which corresponds to 2  
 And is in fact intersection of both sets 
 
-setA&~setB = 00001000  
+setA&amp;~setB = 00001000  
 Which corresponds to 4  
 And is in fact difference of both sets
 
-We can clearly see that i'th bit of resultant binary number corresponds to i'th element of set, and it should be printed only if the bit is 1.
+We can clearly see that i&#39;th bit of resultant binary number corresponds to i&#39;th element of set, and it should be printed only if the bit is 1.
 
-So, we need to again iterate bit by bit and check if it's 1 or 0, and print elements from universal set accordingly.  
-In order to check state of i'th bit, we use  
-    setA&(1<<i)  
-What's happening here is we are ANDing two binary numbers, one is our number of which we want to check i'th bit. Another is a number which has only i'th bit as one.  
-Suppose, 10101010 & 00001000  
+So, we need to again iterate bit by bit and check if it&#39;s 1 or 0, and print elements from universal set accordingly.  
+In order to check state of i&#39;th bit, we use  
+    setA&amp;(1&lt;&lt;i)  
+What&#39;s happening here is we are ANDing two binary numbers, one is our number of which we want to check i&#39;th bit. Another is a number which has only i&#39;th bit as one.  
+Suppose, 10101010 &amp; 00001000  
 If both numbers contain 1 at the place second one contains it, the result will be second number which is non zero i.e. True  
-If they don't contain one at i'th bit, result will be zero, i.e. False. 
+If they don&#39;t contain one at i&#39;th bit, result will be zero, i.e. False. 
 
-I think pretty much everything is covered. Powerset method is easily available on any site. So, please look about. Or else, I'll be adding how to do that too. 
+I think pretty much everything is covered. Powerset method is easily available on any site. So, please look about. Or else, I&#39;ll be adding how to do that too. 
 
 So, we got our required operators, booleans, and logics, the need is just to convert ideas to code :) 
-
+</span></pre></div>
