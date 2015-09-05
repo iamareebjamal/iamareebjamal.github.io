@@ -1,4 +1,4 @@
-<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #75715e">Since bitwise operators work only on integer and character, we can only take small sets. That&#39;s because int type supports max 32 bit binary number in modern compilers. That&#39;s 2^32 - 1 in decimal. 
+<div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color :#75715e">Since bitwise operators work only on integer and character, we can only take small sets. That&#39;s because int type supports max 32 bit binary number in modern compilers. That&#39;s 2^32 - 1 in decimal. 
 
 Now, since each element of a set will be represented by a bit 0 or 1, set can&#39;t have more than 32 elements or in a way, not more than 32 bits. 
 
@@ -30,7 +30,7 @@ For this example, it&#39;ll be proceeded like this :
 4 - Found     - 1  
 5 - Not Found - 0
 
-So, the binary number we get it 001010
+So, the binary number we get it 010100
 Which is of 6 bits (size of universal set)  
 You can see clearly that cardinality of universal set doesn&#39;t matter as all other bits are set to zero by default. 
 
@@ -63,25 +63,25 @@ Now, we have created an integer bit set setA, now we&#39;ll similarly create bit
 4 - Not Found - 0  
 5 - Not Found - 0  
 
-So, setB will be equal to 11110000  
+So, setB will be equal to 00001111  
 (Here we are considering 8 bits, don&#39;t worry about it, compiler handles it on its own, just make sure that your set doesn&#39;t contain more than 32 elements) 
 
 80% of the work is done.  
 We have got our bit sets, which are  
-setA = 00101000  
-setB = 11110000
+setA = 00010100  
+setB = 00001111
 
 Now, as your mind will already be telling you naturally, what will be its union or intersection or difference is pretty much straightforward. 
 
-setA|setB = 11111000  
+setA|setB = 00011111  
 Which corresponds to 0 1 2 3 4  
 And is in fact union of both sets 
 
-setA&amp;setB = 00100000  
+setA&amp;setB = 00000100  
 Which corresponds to 2  
 And is in fact intersection of both sets 
 
-setA&amp;~setB = 00001000  
+setA&amp;~setB = 00010000  
 Which corresponds to 4  
 And is in fact difference of both sets
 
