@@ -16,9 +16,10 @@
 
 body{
 	font-family: 'RobotCondensed', 'Georgia', serif;
-	background: #673ab7;
+	background: #333333;
 	color: rgba(255, 255, 255, 0.6);
 }
+/* 673ab7 */
 
 .head{
 	font-family: 'RobotSlab', 'Georgia', serif;
