@@ -38,10 +38,13 @@ body{
 }
 
 message{
-	margin: 15px;
+	margin: 10px;
 	font-size: 16pt;
 }
 
+martry{
+	margin: 60px;
+}
 #submit {
 	font-family: 'RobotCondensed', 'Helvetica', 'Georgia', serif;
     background-color: #e91e63;
