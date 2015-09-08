@@ -67,7 +67,12 @@ message{
 			border-radius: 50% ;
 }
 
-onclick="window.location='./codes/cs2
+#vertical {
+   position : absolute ;
+   top: -50%;
+   left: 0 ;
+   width : 100% ;
+}
 
 #fixCenter{
 				position:absolute;
