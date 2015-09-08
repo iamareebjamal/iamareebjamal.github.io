@@ -67,16 +67,19 @@ message{
 			border-radius: 50% ;
 }
 
-#vertical{
-    position:absolute;
-    top:-50%;
-    left:0;
-    width:100%;
-}
+onclick="window.location='./codes/cs2
 
 #fixCenter{
 				position:absolute;
     top:-10%;
+    left:0;
+    width:100%;
+}
+
+
+#pushDown{
+    position:relative;
+    top:20px;
     left:0;
     width:100%;
 } 

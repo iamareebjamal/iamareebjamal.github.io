@@ -4,5 +4,5 @@ SET Cool  = {a b c d e f g}
 SET Art   = {h i j k l m n o p}
 SET Bat   = {l m n o p q r s t}
 SET Cat   = {u v w x y zee}
-SET Agre  = {Areeb Altaf Mansoor Aqib}
-SET New   = {Areeb Divy Shubham Abdullah Aqib}
+SET Agre  = {Areeb Android Python C# Bash Batch Udify Smali Java}
+SET New   = {Areeb Android Studio Java Eclipse Python Idle C# Visual Studio}
