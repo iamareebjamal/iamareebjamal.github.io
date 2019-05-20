@@ -1,4 +1,0 @@
-SET U = {a b c d e f g h i j k l emm enn o pee queue aar ess tee yu vi ex vai zee}
-SET Art = {g h i vai pee zee}
-SET Bat = {d e f h a i zee k yu}
-SET Cat = {a pee b c ex tee vai queue}

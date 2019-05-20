@@ -1,5 +1,0 @@
-4 u 1 r 2 r 3 r d NULL
-6 d 9 l 8 d b u 8 d b NULL
-No node
-7 d a r b r c Invalid Move
-No node
